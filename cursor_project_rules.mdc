@@ -1,0 +1,116 @@
+---
+description: Apply these rules when creating the project
+globs:
+alwaysApply: true
+---
+## Project Overview
+
+* **Type:** Educational Mobile Platform
+* **Description:** TechTrek is a cross‐platform mobile application (iOS and Android) built with React Native (TypeScript) that provides short, interactive, and gamified lessons to help non-technical professionals (sales, marketing, product, project managers, executives) learn technology basics in a fun and engaging way.
+* **Primary Goal:** Empower non-technical professionals to communicate effectively with tech teams and make informed decisions by delivering sequential, interactive lessons augmented with gamification elements.
+
+## Project Structure
+
+### Framework-Specific Routing
+
+* **Directory Rules:**
+
+    * **React Native + React Navigation (Latest):** Use a centralized navigation directory with stack, tab, and drawer navigators following React Navigation best practices.
+    * Example 1: "React Navigation Stack" → `src/navigation/StackNavigator.tsx` for screen transition management.
+    * Example 2: "React Navigation Tabs" → `src/navigation/TabNavigator.tsx` for bottom tab configurations.
+
+### Core Directories
+
+* **Versioned Structure:**
+
+    * **src/screens:** Contains screen components, e.g., `src/screens/LessonScreen.tsx` for interactive lesson views.
+    * **src/components:** Houses reusable UI components, e.g., buttons, hints, and quiz components.
+    * **src/navigation:** Holds routing and navigator configurations, e.g., `src/navigation/index.tsx` for initializing the Navigation Container.
+    * **src/api:** For integrating Supabase interactions and other backend services.
+    * **src/services:** Includes AI chatbot integrations with GPT 4o, Claude 3.7 Sonnet, and Gemini 2.5 Pro for in-lesson hints.
+
+### Key Files
+
+* **Stack-Versioned Patterns:**
+
+    * **src/navigation/index.tsx:** Entry point for setting up React Navigation containers with stack and tab navigators.
+    * **src/screens/Home.tsx:** Main dashboard displaying metrics such as XP, streaks, leaderboards, and progress tracking.
+    * **src/components/HintButton.tsx:** Consistently available hint button on every lesson and quiz screen triggering AI chatbot assistance.
+
+## Tech Stack Rules
+
+* **Version Enforcement:**
+
+    * **react-native@latest:** Use the latest stable React Native version, ensuring cross-platform compatibility and performance optimizations.
+    * **react-navigation@6:** Enforce use of React Navigation version 6 for stack, tab, and drawer navigation. 
+    * **supabase@latest:** Integrate database, authentication, and storage using the latest recommended practices.
+    * **Vercel V0:** Use Vercel’s component building practices for any front-end UI component generation.
+
+## PRD Compliance
+
+* **Non-Negotiable:**
+
+    * "Every lesson and quiz screen must include a readily available 'hint' button that triggers the AI chatbot to assist users." → This constraint must be adhered to in every version-specific implementation of the UI components.
+
+## App Flow Integration
+
+* **Stack-Aligned Flow:**
+
+    * Example: "React Navigation Auth Flow" → `src/navigation/AuthNavigator.tsx` manages login/sign-up processes, and navigates users to `src/screens/Home.tsx` upon successful authentication.
+    * Example: Interactive lesson screens (`src/screens/LessonScreen.tsx`) incorporate drag-and-drop, quizzes, and fill-in-the-blank activities, with a single consistent hint button component integrated in each view.
+
+## Best Practices
+
+* **React Native**
+    * Maintain a clean separation of concerns between UI, business logic, and data management.
+    * Use functional components and hooks to manage state and side effects.
+    * Optimize performance by leveraging memoization and lazy loading of components where applicable.
+
+* **React Navigation**
+    * Centralize navigation logic in a dedicated directory (`src/navigation`).
+    * Keep navigators simple and modular to ease future modifications and maintenance.
+    * Ensure deep linking is configured for seamless navigation between screens.
+
+* **Supabase**
+    * Secure authentication and data transactions using Supabase’s built-in security protocols.
+    * Optimize database queries and use real-time subscriptions when appropriate.
+    * Keep configuration centralized to simplify updates to the backend integrations.
+
+* **AI Integrations (GPT 4o, Claude 3.7 Sonnet, Gemini 2.5 Pro)**
+    * Implement modular services for AI functionalities, allowing independent updates and testing.
+    * Validate AI responses and provide fallback behavior in case of delays or errors.
+    * Ensure integration is compliant with privacy and data handling requirements.
+
+* **Development Tools (Lovable.dev, Windsurf & Cursor, VS Code)**
+    * Leverage IDE integrations for AI-assisted coding while keeping version control consistent across teams.
+    * Regularly update tooling configurations to take advantage of productivity improvements.
+    * Enforce coding standards and perform code reviews to maintain code quality.
+
+## Rules
+
+* Derive folder/file patterns directly from the tech stack versions documented above.
+* For React Native with React Navigation 6: Use a dedicated `src/navigation/` directory with stack, tab, and drawer navigators; do not mix with web-specific patterns like `pages/`.
+* Mirror this logic for all integrated tools and services to ensure consistent project structure.
+* Always ensure that the hint button and gamification features are uniformly available across all lesson and quiz screens.
+
+## Rules Metrics
+
+Before starting the project development, create a metrics file in the root of the project called
+
+`cursor_metrics.md`.
+
+### Instructions:
+
+* Each time a cursor rule is used as context, update `cursor_metrics.md`.
+
+* Use the following format for `cursor_metrics.md:`
+
+# Rules Metrics
+
+## Usage
+
+The number of times each rule is used as context:
+
+* rule-name.mdc: 5
+* another-rule.mdc: 2
+* ...other rules
